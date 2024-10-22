@@ -42,18 +42,12 @@ app.get('/', async (req, res) => {
 });
 
 app.use('/auth', authController);
-
 // Protected Routes
-app.use(isSignedIn);
+app.use(isSignedIn);// anything bellow this will be MUST SIGN IN
+//everything here will be protected now (*-*)
 
-app.get('/protected', async (req, res) => {
-  if (req.session.user) {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-  } else {
-    res.sendStatus(404);
-    // res.send('Sorry, no guests allowed.');
-  }
-});
+
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
