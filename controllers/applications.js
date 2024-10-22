@@ -13,6 +13,12 @@ router.get('/', async (req ,res) =>{
         console.log(error)
         res.redirect('/')
       }
-})
+});
+
+// controllers/applications.js
+
+router.get('/new', async (req, res) => {
+  res.render('applications/new.ejs');
+});
 
 module.exports = router;
